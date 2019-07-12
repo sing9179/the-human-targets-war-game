@@ -9,7 +9,7 @@ package ca.sheridancollege.project;
  * A class that models each Player in the game. Players have an identifier, which should be unique.
  * @author dancye, 2018
  */
-public abstract class Player extends Game
+public abstract class Player extends War
 {
     private String playerID; //the unique ID for this player
     
@@ -17,8 +17,8 @@ public abstract class Player extends Game
      * A constructor that allows you to set the player's unique ID
      * @param name the unique ID to assign to this player.
      */
-    public Player(String name,String gameName){
-        super(gameName);
+    public Player(String name,String warGame){
+        super(warGame);
         playerID= name;
     }
     
