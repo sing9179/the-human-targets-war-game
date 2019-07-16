@@ -16,7 +16,7 @@ public class User extends Player{
     }
     
     @Override
-s    public void play(){
+    public void play(){
         
     }
 }
