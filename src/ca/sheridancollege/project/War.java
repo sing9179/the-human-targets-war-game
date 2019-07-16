@@ -11,4 +11,15 @@ package ca.sheridancollege.project;
  */
 public class War extends Game{
     
+    public War(String name){
+        super(name);
+    }
+    public void play(){
+        
+    }
+    
+    public void declareWinner()
+    {
+        
+    }
 }

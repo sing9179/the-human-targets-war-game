@@ -11,4 +11,12 @@ package ca.sheridancollege.project;
  */
 public class User extends Player{
     
+    public User(String name){
+        super(name);
+    }
+    
+    @Override
+s    public void play(){
+        
+    }
 }
