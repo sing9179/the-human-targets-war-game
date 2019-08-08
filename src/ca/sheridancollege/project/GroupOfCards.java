@@ -14,27 +14,34 @@ import java.util.Collections;
  * The group of cards has a maximum size attribute which is flexible for reuse.
  * @author dancye
  */
-public class GroupOfCards 
+public class GroupOfCards extends Card 
 {
    
     //The group of cards, stored in an ArrayList
-    private ArrayList <Card> cards;
-    private int size;//the size of the grouping
+    private ArrayList<String> cards;
+    private Factory fac= new Factory();
+    private int rank =0;
+    private String suits;
+    private String values;
+    private String suit[] = {"Spades","Clubs","Hearts","Diamonds"};
+    private String value[] = {"Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Jack","Queen","King","Ace"};
     
     public GroupOfCards(){
-        
+       
     }
     
-    public GroupOfCards(int givenSize)
+    
+    public GroupOfCards(String value,String suit)
     {
-        size = givenSize;
+        this.values = value;
+        this.suits = suit;
     }
     
     /**
      * A method that will get the group of cards as an ArrayList
      * @return the group of cards.
      */
-    public ArrayList<Card> showCards()
+    public ArrayList<String> showCards()
     {
         return cards;
     }
@@ -43,24 +50,52 @@ public class GroupOfCards
     {
         Collections.shuffle(cards);
     }
-
-    /**
-     * @return the size of the group of cards
-     */
-    public int getSize() {
-        return size;
+    
+    public void create() {
+        cards= new ArrayList<>();
+        for(int i=0;i<4;i++){
+            for(int j=0;j<13;j++){
+                cards.add(value[j] +" of "+suit[i]);
+            }
+        }
     }
-
-    /**
-     * @param givenSize the max size for the group of cards
-     */
-    public void setSize(int givenSize) {
-        size = givenSize;
-    }
-
     @Override
-    public String toString() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String toString(){
+        return "good";
     }
+    
+    public void generate(){
+        for(int i=0;i<52;i++){
+             System.out.println(cards.get(i));
+    }
+    }
+    public void split(){
+        ArrayList<String> deck1 = new ArrayList<>();
+         ArrayList<String> deck2 = new ArrayList<>();
+         int j=0;
+         int k=1;
+         for(int i=0;i<52;i++){
+             if(i%2==0){
+                 
+                 deck1.add(cards.get(j));
+                 j+=2;
+             }
+             else{
+                 
+                 deck2.add(cards.get(k));
+                 k+=2;
+             }
+         }
+         User user = fac.generateUser();
+         user.play(deck1, deck2);
+         
+    }
+    public String pop(ArrayList<String> cards) {
+        String o = cards.get(cards.size() - 1);
+        cards.remove(cards.size() - 1);
+        System.out.println("The card value is "+o);
+        return o;
+  }
+    
     
 }//end class

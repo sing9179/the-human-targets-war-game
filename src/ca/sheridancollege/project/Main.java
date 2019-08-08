@@ -5,6 +5,9 @@
  */
 package ca.sheridancollege.project;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  *
  * @author User
@@ -12,6 +15,19 @@ package ca.sheridancollege.project;
 public class Main {
     public static void main(String[] args){
         GroupOfCards self = new GroupOfCards();
+        User user = new User();
+        Scanner input = new Scanner(System.in);
+        self.create();
+        self.shuffle();
+        
+        self.split();
+        
+     //    System.out.print("You want to play the game: (yes, no)");
+         
+      //  String user = input.next();
+       // if(user.equals("yes")){
+            
+        }
     }
     
-}
+
