@@ -49,5 +49,7 @@ public class War extends Game{
             else{
                 System.out.println("\nOops!! You lost the Game");
             }
+        System.out.println("Score of player" + user);
+            System.out.println("Score of computer" + comp);
     }
 }
